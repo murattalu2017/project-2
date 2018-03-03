@@ -44,7 +44,7 @@ public class ChessGame {
     private String getInput() {
         try {
             this.outStream.print("> ");
-            return inReader.readLine();
+            return inReader.readLine().trim();
         } catch (IOException e) {
             throw new RuntimeException("Failed to read from input: ", e);
         }
@@ -62,7 +62,7 @@ public class ChessGame {
             String currentPlayer = gameState.getCurrentPlayer().toString();
             writeOutput(currentPlayer + "'s Move");
 
-            String input = getInput();
+            String input = getInput().trim();
             if (input == null) {
                 break; // No more input possible; this is the only way to exit the event loop
             } else if (input.length() > 0) {
@@ -77,6 +77,8 @@ public class ChessGame {
                     writeOutput("Current Game:");
                 } else if (input.equals("list")) {
                     writeOutput(gameState.list());
+                } else if (input.equals("undo")) {
+                	// todo: implement undo
                 } else if (MOVE_PATTERN.matcher(input).find()) {
                     String[] args = input.split("\\s+");
                     if (!gameState.move(args[1], args[2])) {

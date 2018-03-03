@@ -93,6 +93,9 @@ public class GameState {
         // is move valid
         Map<Position, Set<Position>> moves = generatePossibleMoves();
         moves.forEach(this::filterCheck);
+        if (moves.get(startPosition) == null) {
+        	return false;
+        }
         if (!moves.get(startPosition).contains(endPosition)) {
             return false;
         }
