@@ -12,6 +12,9 @@ Possible commands:
     'board'                      Show the chess board
     'list'                       List all possible moves
     'move <colrow> <colrow>'     Make a move
+    'undo'                       Undoes last move
+    'mode contest'               Switch into contest mode
+    'mode practice'              Switch into practice mode
 
     a   b   c   d   e   f   g   h
   +---+---+---+---+---+---+---+---+
